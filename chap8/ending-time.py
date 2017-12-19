@@ -12,16 +12,16 @@ For example, on input
 the correct output is 00:12.
 '''
 
-time=input()  #first string
-D=int(input()) #second string
-st1=int(time[0:2]) #get the hours  (first half of string)
-st2=int(time[3:5]) #get the minutes (second half of string)
-nt=(D+st2)%60          #add the additional minutes (provided by the second string) to the current minutes
-st1=st1+(D+st2)//60%24   #given the new number of minutes, we'll calculate what the new hours should be
-if st1==24:     #set some conditions. if st1 is 24, make it 00. 
-   st1='00'
-if nt<10:          #add a leading zero if the hours is less than 10
-   nt='0'+str(nt)
-if int(st1)>24:       
-   st1='0'+str(st1%24)
-print(str(st1)+':'+str(nt))
+HM = input()
+D = int(input())
+h=int(HM[0:2])
+M=int(HM[3:5])
+m = (M+D)%60
+hh = (M+D)//60
+h=(h+hh)%24
+   
+if len(str(m))==1:
+   m='0'+str(m)
+if len(str(h))==1:
+   h='0'+str(h)
+print(str(h) + ':' + str(m))
